@@ -1,0 +1,80 @@
+<div class="login-bg">
+<div ng-controller="LoginController" class="block-center mt-xl wd-xl ">
+
+    <!-- START panel-->
+    <div class="panel panel-dark panel-flat panel-login" style="margin-bottom: 30px;box-shadow: 0 0 6px lightgray;">
+<div style="width: 320px;background: #efefef;margin-top: auto;padding-top:2px;padding-bottom: 2px;">
+    <img src="app/img/logo.png" alt="Image" class="block-center logo-div" alt="Instavans"/>
+</div>
+        <div class="panel-body">
+            <form role="form" validate-form="" novalidate="" class="mb-lg" name="loginForm" ng-submit="loginAdmin()">
+                <div class="form-group has-feedback">
+                    <input id="exampleInputEmail1" type="text" placeholder="Enter username"
+                           ng-model="account.username" required="required" class="form-control"/>
+                    <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="exampleInputPassword1" type="password" placeholder="Password" ng-model="account.password"
+                           required="required" class="form-control"/>
+                    <span class="fa fa-lock form-control-feedback text-muted"></span>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-danger mt-lg login_btn">Login</button>
+                <!--<a ui-sref="page.SubadminRegister" class="btn btn-default form-control" style="margin-top:10px;">Add Sub Admin</a>-->
+            </form>
+            <div ng-show="authMsg" class="alert alert-danger text-center">{{authMsg}}</div>
+
+
+        </div>
+    </div>
+    <!-- END panel-->
+</div>
+</div>
+<!--<div ng-controller="LoginController" class="block-center mt-xl wd-xl">
+    &lt;!&ndash; START panel&ndash;&gt;
+    <div class="panel panel-dark panel-flat">
+        <div class="panel-heading text-center" style="width: 320px;background: #F6D21A;margin-top: auto">
+            <a href="">
+                <img src="app/img/mashaweer-logo.png" alt="Image" class="block-center img-rounded logo-div" />
+            </a>
+        </div>
+        <div class="panel-body">
+            <p class="text-center pv">SIGN IN TO CONTINUE.</p>
+            <form role="form" ng-submit="loginAdmin()" validate-form="" novalidate="" class="mb-lg">
+                <div class="form-group has-feedback">
+                    <input id="exampleInputEmail1" type="email" placeholder="Enter email"
+                           ng-model="account.email" required="required" class="form-control"/>
+                    <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="exampleInputPassword1" type="password" placeholder="Password" ng-model="account.password"
+                           required="required" class="form-control"/>
+                    <span class="fa fa-lock form-control-feedback text-muted"></span>
+                </div>
+                <div class="clearfix">
+                    &lt;!&ndash;<div class="checkbox c-checkbox pull-left mt0">
+                        <label>
+                            <input type="checkbox" value="" name="remember" ng-model="account.remember" />
+                            <span class="fa fa-check"></span>Remember Me</label>
+                    </div>
+                    <div class="pull-right"><a ui-sref="page.recover" class="text-muted">Forgot your password?</a>
+                    </div>&ndash;&gt;
+                </div>
+                <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
+            </form>
+            <div ng-show="authMsg" class="alert alert-danger text-center">{{authMsg}}</div>
+            <p class="pt-lg text-center">Need to Signup?</p><a ui-sref="page.register" class="btn btn-block btn-default">Register Now</a>
+        </div>
+    </div>
+    &lt;!&ndash; END panel&ndash;&gt;
+    <div class="p-lg text-center">
+        <span>&copy;</span>
+        <span ng-bind="app.year"></span>
+        <span>-</span>
+        <span ng-bind="app.name"></span>
+        <br/>
+        <span ng-bind="app.description"></span>
+    </div>
+</div>-->
+
+

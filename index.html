@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="AppName">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="app/img/marker.png"/>
+    <meta name="description" content="{{app.description}}">
+   <title data-ng-bind="pageTitle()">Click Labs</title>
+   <link rel="stylesheet" href="app/css/app.css">
+   <link rel="stylesheet" href="app/css/custom-style.css">
+   <link rel="stylesheet" href="vendor/internationalphoneList/intlTelInput.css">
+   <link rel="stylesheet" href="vendor/datetimepicker/jquery.datetimepicker.css">
+</head>
+
+<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
+   <div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
+   <script src="app/js/base.js"></script>
+   <script src="app/js/app.js"></script>
+   <script src="app/js/myApp.js"></script>
+   <script src="app/js/controllers/customers-ctrl.js"></script>
+   <script src="app/js/controllers/individual-ctrl.js"></script>
+   <script src="app/js/controllers/enterprise-ctrl.js"></script>
+   <script src="app/js/controllers/unverified-ctrl.js"></script>
+   <script src="app/js/controllers/addPromo-ctrl.js"></script>
+   <script src="app/js/controllers/dashboard-ctrl.js"></script>
+   <script src="app/js/controllers/dispatcher-ctrl.js"></script>
+   <script src="app/js/controllers/drivers-ctrl.js"></script>
+   <script src="app/js/controllers/map-circle-ctrl.js"></script>
+   <script src="app/js/controllers/map-circle-ctrl1.js"></script>
+   <script src="app/js/controllers/moment.js"></script>
+   <script src="app/js/controllers/orders-ctrl.js"></script>
+   <script src="app/js/controllers/payment-ctrl.js"></script>
+   <script src="app/js/controllers/promo-ctrl.js"></script>
+   <script src="app/js/controllers/pricing-ctrl.js"></script>
+   <script src="app/js/controllers/register-ctrl.js"></script>
+   <script src="app/js/controllers/addSubAdmin-ctrl.js"></script>
+   <script src="app/js/controllers/reports-ctrl.js"></script>
+   <script src="app/js/controllers/addSubscription-ctrl.js"></script>
+   <script src="app/js/controllers/subscription-ctrl.js"></script>
+   <script src="app/js/controllers/pendingSubscription-ctrl.js"></script>
+   <script src="app/js/controllers/login-ctrl.js"></script>
+   <script src="vendor/export/alasql.min.js"></script>
+   <script src="app/js/controllers/shipments-ctrl.js"></script>
+   <script src="app/js/controllers/individual-shipments-ctrl.js"></script>
+   <script src="app/js/controllers/enterprise-shipments-ctrl.js"></script>
+   <script src="vendor/angular-google-maps/angular-google-maps.min.js"></script>
+   <script src="vendor/angular-google-maps/lodash.min.js"></script>
+   <script src="vendor/datetimepicker/jquery.datetimepicker.js"></script>
+   <script src="vendor/internationalphoneList/intlTelinput.js"></script>
+   <script src="vendor/angular-google-maps/lodash.min.js"></script>
+   <script src='http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&amp;libraries=places'></script>
+   <script src="vendor/marker/markerclusterer.js"></script>
+   <script src="vendor/marker/markerwithLabel.js"></script>
+   <script src="vendor/stripe/stripe-angular.js"></script>
+   <script src="vendor/ngMask/ngMask.min.js"></script>
+<!--   <script src="app/js/controllers/register-ctrl.js"></script>-->
+ <!--  <script src="app/js/controllers/moment.js"></script>-->
+</body>
+
+</html>

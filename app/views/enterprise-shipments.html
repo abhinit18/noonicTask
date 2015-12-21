@@ -1,0 +1,129 @@
+<span ng-controller="enterpriseShipmentsController" >
+
+    <div class="ngdialog-message headerMargin"><h3 ng-bind="name"></h3>
+        <h3 class="page-header" id="page-header-techServices">Shipment Details
+            <a ng-click="exportData()" class="btn btn-default btn-danger pull-right headerButtonMargin">Export All Customer Details</a>
+           <!--  <a ng-click="addCreditDialog()" class="btn btn-danger pull-right" style="margin: -5px 10px 0 0">Add Customer</a> -->
+        </h3>
+<!--<h3 style="margin-top: -15px">
+    Customers List
+    &lt;!&ndash;<small>Displaying list of all customers.</small>&ndash;&gt;
+</h3>
+<div >
+    <button ng-click="exportData()" class="pull-right btn btn-sm btn-success" style="float: right; margin-top: -40px"
+           >Export To CSV
+    </button>
+    <button ng-click="addCreditDialog()" type="button" class="pull-right btn btn-sm btn-success"
+            style="float: right;margin: -40px 110px 0 0">Add Credit
+    </button>
+</div>-->
+<div ng-init="init()" class="container-fluid">
+    <!-- START DATATABLE 2 -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default" ng-class="{'whirl standard' : loading }">
+                <div class="table-responsive">
+                    <table id="datatable2" class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th hidden="hidden">ID</th>
+                            <th class="text-center">Ship ID</th>
+                            <th>Shipper Name</th>
+                            <th>Driver Name</th>
+                            <th>Pickup Time</th>
+                            <th>Status</th>
+                            <th>Fare</th>
+                            <th>Vehicle</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="data in list">
+                            <!--<td>{{$index + 1}}</td>-->
+                            <td hidden="hidden">{{data._id}}</td>
+                            <td class="text-center">{{data.org_name}}</td>
+                            <td class="text-center">{{data.unit_name}}</td>
+                            <td>{{data.address}}</td>
+                            <td>{{data.contact_person}}</td>
+                            <td>{{data.contact_number}}</td>
+                            <td class="text-center"><a href="javascript:void(0);" ng-click="blockCustomer(data._id)" class="btn btn-default btn-dark btn-sm">Block</a></td>
+                            <td class="text-center"><a href="javascript:void(0);" ng-click="viewCustomer(data)" class="btn btn-default btn-dark btn-sm">View</a></td>
+                            <!--<td style="text-align: center;">-->
+                                <!--<button ng-click="editData(data)" title="Edit" class="btn btn-sm btn-success">-->
+                                    <!--<em class="fa fa-pencil"></em>-->
+                                <!--</button>-->
+                                <!--<button ng-hide="{{data.isBlocked}}" ng-click="blockCust(data.email)"-->
+                                        <!--title="Block" class="btn btn-sm btn-warning">-->
+                                    <!--<em class="fa fa-unlock"></em>-->
+                                <!--</button>-->
+                                <!--<button ng-show="{{data.isBlocked}}" ng-click="blockCust(data.email)"-->
+                                        <!--title="Unblock" class="btn btn-sm btn-warning">-->
+                                    <!--<em class="fa fa-lock"></em>-->
+                                <!--</button>-->
+                            <!--</td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</span>
+
+<!--View Enterprise user details dialog box-->
+
+
+<script type="text/ng-template" id="view_enterprise">
+    <div class="ngdialog-message">
+        <h4>View Customer Details</h4>
+        <h4 class="full-width">
+          <!--<button ng-show="1" ng-click="blockCustomer(data.email)" title="Unblock" class="btn btn-sm btn-warning">-->
+            <!--<em class="fa fa-lock"></em>-->
+        <!--</button>-->
+        <!--<button ng-click="editData(data)" title="Edit" class="btn btn-sm btn-success">-->
+            <!--<em class="fa fa-pencil"></em>-->
+        <!--</button>-->
+         </h4>
+        <div class="form-group">
+
+
+            <label class="control-label">Name of the Organization</label>
+            <input name="org_name" ng-model="org_name" required="required" class="form-control" readonly/>
+
+            <label class="control-label">Unit Name</label>
+            <input name="unit_name" ng-model="unit_name" required="required" class="form-control" readonly/>
+
+            <label class="control-label">Address</label>
+            <input name="address" ng-model="address" required="required" class="form-control" readonly/>
+
+            <label class="control-label">Contact Person</label>
+            <input name="contact_person" ng-model="contact_person" required="required" class="form-control" readonly/>
+
+            <label class="control-label">Contact Number</label>
+            <input name="contact_number" ng-model="contact_number" numbers-only required="required" class="form-control" readonly/>
+
+            <label class="control-label">Email</label>
+            <input name="org_name" ng-model="email" required="required" class="form-control" readonly/>
+
+        </div>
+        <button type="button" ng-click="closeThisDialog('button')" class="btn btn-default">
+            Cancel
+        </button>
+        <div style="clear: both;"></div>
+    </div>
+</script>
+
+<!--plain message ng-dialog-->
+
+<script type="text/ng-template" id="message">
+    <div class="ngdialog-message">
+        <h4>{{ message }}</h4>
+        <div style="clear: both;"></div>
+    </div>
+</script>
+
+
+
+
