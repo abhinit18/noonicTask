@@ -24,7 +24,8 @@ App.controller('dashboardController', function ($scope, $http, $cookies, $cookie
             });
     };
     //console.log($scope.currencyDataTable)
-    $scope.convertValue = function(){
+
+    $scope.dataConversion = function(){
         if(($scope.genericData.currency === "" || $scope.genericData.currency === undefined || $scope.genericData.currency === "undefined")
          && 
          ($scope.genericData.moneyValue === undefined || $scope.genericData.moneyValue === "" || $scope.genericData.moneyValue === "undefined")){
@@ -48,6 +49,13 @@ App.controller('dashboardController', function ($scope, $http, $cookies, $cookie
             console.log(error);
         })
         
+    }
+
+    $scope.convertValue = function(){
+        $scope.dataConversion();
+        $interval(function(){
+            $scope.dataConversion();
+        },60000);
     };
 
 $scope.getTrendingData = function(){
@@ -135,7 +143,6 @@ $scope.getTrendingData = function(){
     $scope.updateTicker();
     $interval(function(){
         $scope.getTrendingData();
-        $scope.convertValue();
         $scope.updateTicker();
     },60000);
 
