@@ -30,14 +30,9 @@ App.run(["$log", function ($log) {
 
 }]);
 App.constant("baseurl", {
-    "url": " http://54.148.46.67:3000/api/admin"
+    "url": " https://api.blockchain.info/"
 });
-App.constant("MY_CONSTANT", {
-    "url": " http://52.6.230.125:8000/"
-});
-App.constant("MY_CONSTANT1", {
-    "url": "http://maps.googleapis.com/maps/api/geocode/json"
-});
+
 App.constant("responseCode", {
     "SUCCESS": 200
 });
@@ -51,7 +46,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
 
         // default route
        /* $urlRouterProvider.otherwise('/app/rewardBrands');*/
-        $urlRouterProvider.otherwise('page/login');
+        $urlRouterProvider.otherwise('app/dashboard');
         //
         // Application Routes
         // -----------------------------------
@@ -67,21 +62,21 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                     $rootScope.app.layout.isBoxed = false;
                 }]
             })
-            .state('page.login', {
-                url: '/login',
-                title: "Login",
-                templateUrl: 'app/pages/login.html'
-            })
-            .state('page.register', {
-                url: '/register',
-                title: "Register",
-                templateUrl: 'app/pages/register.html'
-            })
-            .state('page.SubadminRegister', {
-                url: '/SubadminRegister',
-                title: "Register",
-                templateUrl: 'app/pages/SubadminRegister.html'
-            })
+            // .state('page.login', {
+            //     url: '/login',
+            //     title: "Login",
+            //     templateUrl: 'app/pages/login.html'
+            // })
+            // .state('page.register', {
+            //     url: '/register',
+            //     title: "Register",
+            //     templateUrl: 'app/pages/register.html'
+            // })
+            // .state('page.SubadminRegister', {
+            //     url: '/SubadminRegister',
+            //     title: "Register",
+            //     templateUrl: 'app/pages/SubadminRegister.html'
+            // })
             .state('page.recover', {
                 url: '/recover',
                 title: "Recover",
@@ -112,126 +107,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 templateUrl: helper.basepath('dashboard.html')
                 //resolve: helper.resolveFor('datatables', 'datatables-pugins','ngDialog')
             })
-            .state('app.SubadminRegister', {
-                url: '/SubadminRegister',
-                title: 'SubadminRegister',
-                templateUrl: helper.basepath('SubadminRegister.html')
-                //resolve: helper.resolveFor('datatables', 'datatables-pugins','ngDialog')
-            })
-            .state('app.customers', {
-                url: '/customers',
-                title: 'Customers',
-                templateUrl: helper.basepath('customers.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins', 'ngDialog','parsley')
-            })
-            .state('app.individual', {
-                url: '/individual-users',
-                title: 'Individual Users',
-                templateUrl: helper.basepath('individual.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins', 'ngDialog','parsley')
-            })
-             .state('app.enterprise', {
-                url: '/enterprise-users',
-                title: 'Enterprise Users',
-                templateUrl: helper.basepath('enterprise.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins', 'ngDialog','parsley')
-            })
-              .state('app.unverified', {
-                url: '/unverified-users',
-                title: 'unverified Users',
-                templateUrl: helper.basepath('unverified.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins', 'ngDialog','parsley')
-            })
-            .state('app.drivers', {
-                url: '/drivers',
-                title: 'Drivers',
-                templateUrl: helper.basepath('drivers.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins')
-            })
-            .state('app.shipments', {
-                url: '/shipments',
-                title: 'Shipments',
-                templateUrl: helper.basepath('shipments.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins')
-            })
-            .state('app.individual-shipments', {
-                url: '/individual-shipments',
-                title: 'Shipments',
-                templateUrl: helper.basepath('individual-shipments.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins')
-            })
-            .state('app.enterprise-shipments', {
-                url: '/enterprise-shipments',
-                title: 'Shipments',
-                templateUrl: helper.basepath('enterprise-shipments.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins')
-            })
-            .state('app.payment', {
-                url: '/payment',
-                title: 'Payment',
-                templateUrl: helper.basepath('payment.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins')
-            })
-            .state('app.reports', {
-                url: '/reports',
-                title: 'Reports',
-                templateUrl: helper.basepath('reports.html')
-                //resolve: helper.resolveFor()
-            })
-            .state('app.pricing', {
-                url: '/pricing',
-                title: 'Pricing',
-                templateUrl: helper.basepath('pricing.html'),
-                resolve: helper.resolveFor('xeditable','ngDialog')
-            })
-            .state('app.subscription', {
-                url: '/subscription',
-                title: 'Subscription',
-                templateUrl: helper.basepath('subscription.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins','ngDialog')
-            })
-            .state('app.addSubscription', {
-                url: '/add_subscription',
-                title: 'Subscription',
-                templateUrl: helper.basepath('addSubscription.html'),
-                resolve: helper.resolveFor('parsley')
-            })
-            .state('app.pendingSubscription', {
-                url: '/pending_subscription',
-                title: 'Pending Subscription',
-                templateUrl: helper.basepath('pendingSubscription.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins','parsley')
-            })
 
-            .state('app.promo', {
-                url: '/promotion',
-                title: 'Promotion',
-                templateUrl: helper.basepath('promo.html'),
-                resolve: helper.resolveFor('datatables', 'datatables-pugins','ngDialog')
-            })
-            .state('app.addPromo', {
-                url: '/add_promo',
-                title: 'Add Promo',
-                templateUrl: helper.basepath('addPromo.html'),
-                resolve: helper.resolveFor('parsley')
-            })
-            .state('app.addSubAdmin', {
-                url: '/addSubAdmin',
-                title: 'Add Order',
-                templateUrl: helper.basepath('addSubAdmin.html')
-                //resolve: helper.resolveFor('parsley','ngDialog','ui.select')
-            })
-            .state('app.dispatcher', {
-                url: '/dispatcher',
-                title: 'Dispatcher',
-                templateUrl: helper.basepath('dispatcher.html'),
-                resolve: helper.resolveFor('ngDialog','datatables', 'datatables-pugins')
-            })
-            .state('app.details', {
-                url : "/{id:[0-9]*}",
-                title: 'Details',
-                templateUrl: helper.basepath('')
-            })
             //
             // CUSTOM RESOLVES
             //   Add your own resolves properties
