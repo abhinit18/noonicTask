@@ -137,7 +137,7 @@ $scope.getTrendingData = function(){
         $scope.getTrendingData();
         $scope.convertValue();
         $scope.updateTicker();
-    },16000);
+    },60000);
 
 
     Highcharts.setOptions(highChartsConfig.configs());
