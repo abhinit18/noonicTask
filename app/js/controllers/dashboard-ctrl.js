@@ -25,13 +25,18 @@ App.controller('dashboardController', function ($scope, $http, $cookies, $cookie
     };
     //console.log($scope.currencyDataTable)
     $scope.convertValue = function(){
-        if($scope.genericData.currency && $scope.genericData.moneyValue){
+        if(($scope.genericData.currency === "" || $scope.genericData.currency === undefined || $scope.genericData.currency === "undefined")
+         && 
+         ($scope.genericData.moneyValue === undefined || $scope.genericData.moneyValue === "" || $scope.genericData.moneyValue === "undefined")){
+            
+            $scope.genericData.currency = localStorage.getItem('usersInputCurrency');
+            $scope.genericData.moneyValue = localStorage.getItem('usersInputValue');
+        }else{
+
             localStorage.setItem('usersInputCurrency',$scope.genericData.currency);
             localStorage.setItem('usersInputValue',$scope.genericData.moneyValue);
         }
         
-        $scope.genericData.currency = localStorage.getItem('usersInputCurrency');
-        $scope.genericData.moneyValue = localStorage.getItem('usersInputValue');
         console.log($scope.genericData);
         $http({
             method:'GET',
@@ -132,7 +137,7 @@ $scope.getTrendingData = function(){
         $scope.getTrendingData();
         $scope.convertValue();
         $scope.updateTicker();
-    },60000);
+    },16000);
 
 
     Highcharts.setOptions(highChartsConfig.configs());
