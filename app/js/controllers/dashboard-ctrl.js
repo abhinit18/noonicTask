@@ -4,8 +4,8 @@ App.controller('dashboardController', function ($scope, $http, $cookies, $cookie
 
     // $rootScope.test = $cookieStore.get('obj1').adminType;
     //$scope.currencyDataTable = [];
-    $scope.rateValue = {};
     $scope.genericData = {};
+    var finalData = [];
     $scope.updateTicker  = function(){
         $http.get(baseurl.url + 'ticker')
             .success(function (response, status) {
@@ -13,7 +13,7 @@ App.controller('dashboardController', function ($scope, $http, $cookies, $cookie
                 if (status == 200) {
                     $scope.currencyDataTable = Object.keys(response);
                     console.log($scope.currencyDataTable);
-                    $scope.rateValue = response;
+                    $scope.genericData.tickerData = response;
                 } else {
                     alert("Something went wrong, please try again later.");
                     return false;
@@ -24,7 +24,6 @@ App.controller('dashboardController', function ($scope, $http, $cookies, $cookie
             });
     };
     //console.log($scope.currencyDataTable)
-    $scope.inputUsersData = {};
     $scope.convertValue = function(){
         if($scope.genericData.currency && $scope.genericData.moneyValue){
             localStorage.setItem('usersInputCurrency',$scope.genericData.currency);
@@ -46,8 +45,6 @@ App.controller('dashboardController', function ($scope, $http, $cookies, $cookie
         
     };
 
-
-var finalData = [];
 $scope.getTrendingData = function(){
     
     if($scope.genericData.currencyChart == "" || $scope.genericData.currencyChart === undefined){
@@ -59,8 +56,6 @@ $scope.getTrendingData = function(){
     var dataUrl = 'https://min-api.cryptocompare.com/data/histoday?fsym='+$scope.genericData.currencyChart+'&tsym=BTC&limit=900&aggregate=1&toTs='+dateUnix;
     $.getJSON(dataUrl, function (data) {
     // Create the chart
-    console.log(data.Data);
-
     angular.forEach(data.Data,function(dataValue){
         var dateWiseData = [(dataValue.time*1000),dataValue.volumeto];
         finalData.push(dateWiseData);
@@ -134,11 +129,10 @@ $scope.getTrendingData = function(){
     $scope.getTrendingData();
     $scope.updateTicker();
     $interval(function(){
-
         $scope.getTrendingData();
         $scope.convertValue();
         $scope.updateTicker();
-    },50000);
+    },60000);
 
 
     Highcharts.setOptions(highChartsConfig.configs());
